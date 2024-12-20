@@ -1,6 +1,6 @@
 /*
  * Copyright 2022 CyrilFeng
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -17,27 +17,27 @@
 package com.github.qcalculator.core.enums;
 
 /**
- * 组内关系枚举
- * 组内关系枚举    
+ * 组内关系枚举 组内关系枚举
+ *
  * @author: CyrilFeng
  * @date: 2022/8
  */
 public enum GroupRelation {
 
-    SHARE("share"),
-    EXCLUDE("exclude");
+  SHARE("share"),
+  EXCLUDE("exclude");
 
-    private String type;
+  private String type;
 
-    GroupRelation(String type) {
-        this.type = type;
-    }
+  GroupRelation(String type) {
+    this.type = type;
+  }
 
-    public String getType() {
-        return type;
-    }
+  public String getType() {
+    return type;
+  }
 
-    public void setType(String type) {
-        this.type = type;
-    }
+  public void setType(String type) {
+    this.type = type;
+  }
 }

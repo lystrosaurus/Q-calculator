@@ -1,6 +1,6 @@
 /*
  * Copyright 2022 CyrilFeng
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -16,16 +16,17 @@
 
 
 package com.github.qcalculator.core.aware;
+
 import com.github.qcalculator.core.discount.Calculator;
+import java.util.Map;
 import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.stereotype.Component;
-import java.util.Map;
 
 /**
-
  * 根据注解路由到目标Calculator
+ *
  * @author: CyrilFeng
  * @date: 2022/8
  */
@@ -33,20 +34,20 @@ import java.util.Map;
 @SuppressWarnings("all")
 public class CalculatorRouter implements ApplicationContextAware {
 
-    private Map<String, Calculator> map;
+  private Map<String, Calculator> map;
 
-    @Override
-    public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
-        map = applicationContext.getBeansOfType(Calculator.class);
-    }
+  @Override
+  public void setApplicationContext(ApplicationContext applicationContext) throws BeansException {
+    map = applicationContext.getBeansOfType(Calculator.class);
+  }
 
 
-    public Map<String, Calculator> getMap() {
-        return map;
-    }
+  public Map<String, Calculator> getMap() {
+    return map;
+  }
 
-    public Calculator getService(String key) {
-        return map.get(key);
-    }
+  public Calculator getService(String key) {
+    return map.get(key);
+  }
 
 }

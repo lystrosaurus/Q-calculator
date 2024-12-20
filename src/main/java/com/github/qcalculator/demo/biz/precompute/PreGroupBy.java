@@ -9,17 +9,30 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.stream.Collectors;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PreGroupBy implements PreCompute<GoodsItem> {
-    @Override
-    public Set<String> matchTypes() {
-        return Sets.newHashSet("zhekou");
-    }
 
-    @Override
-    public void preComputeItems(List<GoodsItem> items, DiscountWrapper discount, Map<String, Object> preCompute) {
-        preCompute.put("GroupBySkuIdPreCompute",items.stream().collect(Collectors.groupingBy
-                (GoodsInfo::getSkuId,Collectors.collectingAndThen(Collectors.toList(),
-                        e->e.stream().sorted().collect(Collectors.toList())))));
-    }
+  @Override
+  public Set<String> matchTypes() {
+    return Sets.newHashSet("zhekou");
+  }
+
+  @Override
+  public void preComputeItems(List<GoodsItem> items, DiscountWrapper discount,
+      Map<String, Object> preCompute) {
+    preCompute.put("GroupBySkuIdPreCompute",
+        items.stream().collect(
+            Collectors.groupingBy(
+                GoodsInfo::getSkuId,
+                Collectors.collectingAndThen(
+                    Collectors.toList(),
+                    e ->
+                        e.stream().sorted().collect(Collectors.toList())
+                )
+            )
+        )
+    );
+  }
 }

@@ -1,6 +1,6 @@
 /*
  * Copyright 2022 CyrilFeng
- * 
+ *
  * Licensed under the Apache License, Version 2.0 (the "License");
  * you may not use this file except in compliance with the License.
  * You may obtain a copy of the License at
@@ -15,11 +15,18 @@
  */
 
 package com.github.qcalculator.core.model.common;
-import lombok.*;
+
 import java.io.Serializable;
+import lombok.AllArgsConstructor;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.ToString;
 
 /**
  * 共享互斥关系中的元素
+ *
  * @author: CyrilFeng
  * @date: 2022/8
  */
@@ -30,13 +37,14 @@ import java.io.Serializable;
 @ToString
 @EqualsAndHashCode
 public class Item implements Serializable {
-    /**
-     * 优惠类型，和DiscountWrapper中的type保持一致
-     */
-    private String type;
 
-    /**
-     * 优惠的ID，和DiscountWrapper中的id保持一致 
-     */
-    private String id;
+  /**
+   * 优惠类型，和DiscountWrapper中的type保持一致
+   */
+  private String type;
+
+  /**
+   * 优惠的ID，和DiscountWrapper中的id保持一致
+   */
+  private String id;
 }
